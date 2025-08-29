@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::inertia('/', 'Contact')->name('home');
+
+Route::inertia('/not-found', 'NotFound')->name('notfound');
