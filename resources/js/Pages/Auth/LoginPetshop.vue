@@ -1,15 +1,11 @@
 <template>
     <div class="flex">
-        <div class="w-2/5 bg-gradient-to-br from-[#008080] to-[#00B9B9] min-h-full flex flex-col items-center p-4 text-white rounded-bl-lg rounded-tl-lg">
-            <img src="@/assets/logo-login.svg"/>
-            <h2 class="text-center font-semibold text-2xl">Faça seu login e tenha mais praticidade em sua vida com seu pet!</h2>
-        </div>
         <div class="w-3/5 p-3 flex flex-col gap-4">
             <div class="flex items-center justify-between">
                 <button class="flex items-center cursor-pointer" @click="goBack"><BiChevronLeft class="text-black"/> Voltar</button>
-                <img src="@/assets/tutor-choice.png" class="h-10 w-10"/>
+                <img src="@/assets/petshop-choice.png" class="h-10 w-10"/>
             </div>
-            <h1 class="text-center text-[#008080] font-extrabold text-4xl">Bem-Vindo, Tutor!</h1>
+            <h1 class="text-center text-[#008080] font-extrabold text-4xl">Bem-Vindo, Pet shop!</h1>
 
             <div class="flex flex-col w-4/5 self-center">
                 <label class="self-start" for="email">E-Mail</label>
@@ -26,6 +22,10 @@
                 <p>Ou</p>
                 <button class="w-full border-2 border-[#FF7043] p-2 rounded-lg font-bold text-[#FF7043] cursor-pointer">Cadastre-se</button>
             </div>
+        </div>
+        <div class="w-2/5 bg-gradient-to-br from-[#008080] to-[#00B9B9] min-h-full flex flex-col items-center p-4 text-white rounded-br-lg rounded-tr-lg">
+            <img src="@/assets/logo-login.svg"/>
+            <h2 class="text-center font-semibold text-2xl">Faça seu login e tenha mais praticidade em sua vida com seu pet!</h2>
         </div>
     </div>
 </template>

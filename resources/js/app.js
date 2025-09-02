@@ -3,6 +3,8 @@ import { createInertiaApp, Link, Head } from "@inertiajs/vue3";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 import Layout from "./Layouts/Layout.vue";
 import '../css/app.css'
+import VueTheMask from "vue-the-mask";
+
 
 createInertiaApp({
     title: (title) => `Petzin - ${title}`,
@@ -16,6 +18,7 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
+            .use(VueTheMask)
             .component("Link", Link)
             .component("Head", Head)
             .mount(el);
