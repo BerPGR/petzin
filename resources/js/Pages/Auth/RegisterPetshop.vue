@@ -1,12 +1,23 @@
 <template>
+
   <Head title="Registrar" />
   <div class="flex flex-col items-center min-h-[calc(100vh-10rem)]">
-    <div class="flex items-center justify-between w-[50%] pb-4 mt-10">
-      <div v-for="(stepper, i) in steps" :key="stepper" class="flex flex-col items-center">
-        <div class="h-4 w-4 rounded-full" :class="i <= step ? 'bg-[#008080]' : 'bg-[#ff7043]'" />
-        <h2>{{ stepper }}</h2>
+    <div class="relative w-[50%] pb-4 mt-10">
+      <!-- trilho -->
+      <div class="absolute top-2 left-0 right-0 h-1 bg-[#ff7043]/30 rounded-full"></div>
+      <!-- progresso -->
+      <div class="absolute top-2 left-0 h-1 bg-[#008080] rounded-full transition-[width] duration-500 ease-out"
+        :style="{ width: `${(step / (steps.length - 1)) * 100}%` }"></div>
+
+      <div class="relative flex items-center justify-between">
+        <div v-for="(stepper, i) in steps" :key="stepper" class="flex flex-col items-center">
+          <div class="h-4 w-4 rounded-full transition-all duration-300 ease-out"
+            :class="i === step ? 'bg-[#008080] scale-110 shadow-md' : 'bg-[#ff7043] opacity-80'" />
+          <h2 class="mt-2 text-sm lines">{{ stepper }}</h2>
+        </div>
       </div>
     </div>
+
 
     <div class="p-6 bg-gray-100 flex flex-col shadow-2xl min-w-[50%] rounded-2xl">
       <h1 class="text-3xl font-bold text-[#008080]">Passo {{ step + 1 }}: {{ steps[step] }}</h1>
@@ -18,24 +29,16 @@
         <StepPassword v-model="form" v-else-if="step === 4" />
 
         <div class="flex items-center justify-between mt-6">
-          <button v-if="step > 0" @click.prevent.stop="previousStep" class="py-2 px-3 bg-[#008080] text-white font-bold rounded-lg cursor-pointer">Voltar</button>
+          <button v-if="step > 0" @click.prevent.stop="previousStep"
+            class="py-2 px-3 bg-[#008080] text-white font-bold rounded-lg cursor-pointer">Voltar</button>
           <div v-else />
-          <button
-            key="submit-btn"
-            v-if="step === steps.length - 1"
-            type="submit"
-            class="cursor-pointer py-2 px-3 bg-[#ff7043] text-white font-bold rounded-lg"
-          >
+          <button key="submit-btn" v-if="step === steps.length - 1" type="submit"
+            class="cursor-pointer py-2 px-3 bg-[#ff7043] text-white font-bold rounded-lg">
             <span v-if="!loading">Registrar</span>
             <Spinner v-else />
           </button>
-          <button
-            key="next-btn"
-            v-else
-            type="button"
-            @click.prevent.stop="nextStep"
-            class="py-2 px-3 bg-[#ff7043] text-white font-bold rounded-lg cursor-pointer"
-          >
+          <button key="next-btn" v-else type="button" @click.prevent.stop="nextStep"
+            class="py-2 px-3 bg-[#ff7043] text-white font-bold rounded-lg cursor-pointer">
             Próximo
           </button>
         </div>
@@ -138,10 +141,10 @@ const submit = () => {
   form.profile.working_days = (form.profile.working_days || []).map(d => ptToIsoDay[d] ?? d);
 
   form.transform((data) => data)
-      .post('/petshops', {
-        forceFormData: true,
-        onStart: () => (loading.value = true),
-        onFinish: () => (loading.value = false),
-      });
+    .post('/petshops', {
+      forceFormData: true,
+      onStart: () => (loading.value = true),
+      onFinish: () => (loading.value = false),
+    });
 };
 </script>

@@ -2,7 +2,6 @@
   <div class="flex flex-col items-center gap-4 text-[#303030]">
     <h2 class="text-2xl font-semibold mt-4">Selecione e configure os serviços oferecidos</h2>
 
-    <!-- Seletor rápido -->
     <div class="flex flex-col w-[70%] mt-5 gap-3">
       <div class="flex items-center gap-2" v-for="preset in presets" :key="preset">
         <input
@@ -16,7 +15,6 @@
       </div>
     </div>
 
-    <!-- Editor de serviços selecionados -->
     <div class="w-[70%] mt-6 space-y-6" v-if="model.services.length">
       <div v-for="(svc, idx) in model.services" :key="idx" class="bg-white rounded-xl p-4 border">
         <div class="flex items-center justify-between mb-2">
@@ -64,7 +62,6 @@
       </div>
     </div>
 
-    <!-- Adição manual -->
     <div class="w-[70%] mt-4">
       <button type="button" class="py-2 px-3 bg-[#008080] text-white font-bold rounded-lg" @click="addBlank">
         + Adicionar serviço manualmente

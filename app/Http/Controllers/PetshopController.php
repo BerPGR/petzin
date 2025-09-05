@@ -6,5 +6,5 @@ use Illuminate\Http\Request;
 
 class PetshopController extends Controller
 {
-    //
+    public function register() {}
 }
