@@ -115,6 +115,10 @@ const nextStep = () => { step.value++; };
 const previousStep = () => { step.value--; };
 
 const submit = () => {
-
+    form.post('/register-tutor', {
+        onStart: () => loading.value = true,
+        onFinish: () => loading.value = false,
+        onError: () => step.value = 0
+    });
 };
 </script>
