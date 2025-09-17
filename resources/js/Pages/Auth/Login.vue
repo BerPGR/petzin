@@ -14,7 +14,7 @@ const goBack = () => {
 
     <Head title="Login" />
     <div class="min-h-[calc(100vh-8rem)] flex items-center justify-center">
-        <div class="bg-[#FAFAFA] shadow-lg p-10 text-center min-w-[60%]" v-if="activeComponent === null">
+        <div class="bg-[#FAFAFA] shadow-lg p-10 text-center min-w-[60%] border-2 border-gray-200 rounded-sm" v-if="activeComponent === null">
             <h1 class="text-[#008080] font-bold text-5xl">Entrar</h1>
             <div class="flex items-center justify-around">
                 <div class="flex flex-col items-center gap-4">
