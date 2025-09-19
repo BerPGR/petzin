@@ -2,11 +2,11 @@
 
     <Head :title="$page.component" />
     <div class="min-h-screen w-full text-[#303030]">
-        <h1 class="font-medium text-5xl w-2/4">Olá, Usuário! Pronto para cuidar do seu pet hoje?</h1>
+        <h1 class="font-medium text-5xl w-2/4">Olá, {{$page.props.auth.user.name.split(' ')[0]}}! Pronto para cuidar do seu pet hoje?</h1>
 
         <div class="flex flex-wrap gap-2 mt-10">
             <button v-for="opt in options" :key="opt" @click="toggle(opt)"
-                class="px-5 py-2 rounded-full border transition" :class="selected.includes(opt)
+                class="px-5 py-2 rounded-full border-2 transition" :class="selected.includes(opt)
                     ? 'bg-[#FF7043] text-white font-medium'
                     : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'">
                 {{ opt }}
