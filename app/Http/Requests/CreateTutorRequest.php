@@ -30,9 +30,18 @@ class CreateTutorRequest extends FormRequest
             'address.zip_code' => 'required|string|max:9',
             'address.uf' => 'required|string|size:2',
             'address.city' => 'required|string|max:255',
-            'address.street' => 'required|string','max:255',
-            'address.number' => 'nullable','string','max:20',
-            'address.neighborhood' => 'nullable','string','max:255',
+            'address.street' => 'required|string|max:255',
+            'address.number' => 'nullable|string|max:20',
+            'address.neighborhood' => 'nullable|string|max:255',
+            'pets' => 'nullable|array',
+            'pets.*.name' => 'required_with:pets.*|string|max:255',
+            'pets.*.breed' => 'nullable|string|max:255',
+            'pets.*.age' => 'nullable|integer|max:30',
+            'pets.*.size' => 'nullable|string',
+            'pets.*.weight' => 'nullable|numeric',
+            'pets.*.height' => 'nullable|numeric',
+            'pets.*.type' => 'nullable|string',
+            'pets.*.image' => 'nullable|string|max:2048',
         ];
     }
 }

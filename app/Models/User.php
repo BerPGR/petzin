@@ -52,4 +52,8 @@ class User extends Authenticatable
     public function address() {
         return $this->morphOne(Address::class,'addressable');
     }
+
+    public function pets() {
+        return $this->hasMany(Pet::class, 'user_id');
+    }
 }

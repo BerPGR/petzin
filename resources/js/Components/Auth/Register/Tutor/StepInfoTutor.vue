@@ -12,7 +12,7 @@
 
 
     <div class="flex flex-col w-[70%] mt-5">
-      <label class="text-xl font-semibold" for="email">E-mail do petshop</label>
+      <label class="text-xl font-semibold" for="email">E-mail</label>
       <input placeholder="example@example.com" v-model="model.email" class="border-2 bg-white border-gray-300 rounded-lg p-2" type="email" id="email">
     </div>
 

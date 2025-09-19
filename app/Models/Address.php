@@ -12,7 +12,7 @@ class Address extends Model
 
     protected $fillable = [
         'zip_code', 'uf', 'city', 'street', 'number',
-        'neighboorhood'
+        'neighborhood'
     ];
 
     public function addressable() {

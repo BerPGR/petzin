@@ -24,7 +24,7 @@
             <div class="flex flex-col w-4/5 self-center mt-2 gap-4 pb-4">
                 <button class="w-full bg-[#ff7043] p-2 rounded-lg font-bold text-white cursor-pointer">Entrar</button>
                 <p>Ou</p>
-                <button class="w-full border-2 border-[#FF7043] p-2 rounded-lg font-bold text-[#FF7043] cursor-pointer">Cadastre-se</button>
+                <Link :href="route('register.tutor')" class="w-full border-2 border-[#FF7043] p-2 rounded-lg font-bold text-[#FF7043] cursor-pointer">Cadastre-se</Link>
             </div>
         </div>
     </div>

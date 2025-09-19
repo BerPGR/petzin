@@ -11,19 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('pets', function (Blueprint $table) {
+        Schema::create('pets', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('name');
             $table->enum('type', ['dog', 'cat']);
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('breed');
             $table->unsignedInteger('age');
-            $table->decimal('weight', 3, 2);
-            $table->decimal('height', 3, 2);
+            $table->decimal('weight', 5, 2);
+            $table->decimal('height', 5, 2);
             $table->enum('size', ['small', 'medium', 'big']);
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

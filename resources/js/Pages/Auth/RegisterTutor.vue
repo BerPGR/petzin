@@ -82,7 +82,7 @@ type RegisterForm = {
         city: string | null;
         street: string | null;
         number: string | null;
-        neighboorhood: string | null;
+        neighborhood: string | null;
     }
 
     pets: PetsInfo[]
@@ -101,7 +101,7 @@ const form = useForm<RegisterForm>({
         city: null,
         street: null,
         number: null,
-        neighboorhood: null
+        neighborhood: null
     },
 
     pets: []
@@ -115,10 +115,16 @@ const nextStep = () => { step.value++; };
 const previousStep = () => { step.value--; };
 
 const submit = () => {
+    alert('Enviando formulário...');
+    try {
+
+    } catch (error) {
+        console.error('Erro ao enviar o formulário:', error);
+    }
     form.post('/register-tutor', {
         onStart: () => loading.value = true,
         onFinish: () => loading.value = false,
-        onError: () => step.value = 0
+        onError: (e) => console.log(e),
     });
 };
 </script>
