@@ -50,4 +50,18 @@ class TutorController extends Controller
             return to_route('register.tutor')->withErrors(['error' => 'Ocorreu um erro ao registrar o tutor. Por favor, tente novamente.']);
         }
     }
+
+    public function store(Request $request) {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+            'role' => 'required|string|in:tutor'
+        ]);
+
+        if (!Auth::attempt($credentials)) {
+           return redirect()->back()->withErrors(['error' => 'Credenciais inválidas. Por favor, tente novamente.']);
+        }
+
+        return to_route('home');
+    }
 }
